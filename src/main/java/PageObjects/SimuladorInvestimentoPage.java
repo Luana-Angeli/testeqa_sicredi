@@ -2,7 +2,8 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SimuladorInvestimentoPage {
 
@@ -14,8 +15,9 @@ public class SimuladorInvestimentoPage {
 
 	}
 
-	public void clicarPraVoce() {
-		driver.findElement(paraVoce).click();
+	public void informeSeuPerfil() {
+		driver.findElements(informeSeuPerfil).get(1).click();
+
 	}
 
 	public void valorAplicar() {
@@ -37,12 +39,12 @@ public class SimuladorInvestimentoPage {
 
 	}
 
-	public void simular() {
+	public void simular() throws InterruptedException{
 		driver.findElement(simular).click();
-
+		
 	}
 
-	private By paraVoce = By.xpath("//input[@value='paraVoce']");
+	private By informeSeuPerfil = By.cssSelector("div[class='relative campoObrigatorio clearfix'] > input");
 	private By valorAplicar = By.id("valorAplicar");
 	private By valorInvestir = By.id("valorInvestir");
 	private By tempo = By.id("tempo");

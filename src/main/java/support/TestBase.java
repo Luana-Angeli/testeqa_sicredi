@@ -1,5 +1,7 @@
 package support;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +16,10 @@ public class TestBase {
 	public void setUp() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://www.sicredi.com.br/html/ferramenta/simulador-investimento-poupanca/");
+		
+		driver.manage().window().maximize();
 
 	}
 	
