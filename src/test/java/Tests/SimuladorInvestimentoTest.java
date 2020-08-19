@@ -16,19 +16,12 @@ public class SimuladorInvestimentoTest extends TestBase {
 	public void simuladorInvestimento() {
 
 		SimuladorInvestimentoPage simulador = new SimuladorInvestimentoPage(driver);
-
 		simulador.informeSeuPerfil();
-
 		simulador.valorAplicar();
-
 		simulador.valorInvestir();
-
 		simulador.tempo();
-
 		simulador.meses();
-
 		simulador.simular();
-
 		
 		ResultadoSimulacaoPage resultado = new ResultadoSimulacaoPage(driver);
 
