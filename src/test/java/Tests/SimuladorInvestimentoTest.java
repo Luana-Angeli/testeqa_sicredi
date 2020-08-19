@@ -1,17 +1,19 @@
 package Tests;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import PageObjects.ResultadoSimulacaoPage;
 import PageObjects.SimuladorInvestimentoPage;
 import support.TestBase;
 
 public class SimuladorInvestimentoTest extends TestBase {
 
 	@Test
-	public void simuladorInvestimento() throws InterruptedException{
+	public void simuladorInvestimento() {
 
 		SimuladorInvestimentoPage simulador = new SimuladorInvestimentoPage(driver);
 
@@ -26,11 +28,12 @@ public class SimuladorInvestimentoTest extends TestBase {
 		simulador.meses();
 
 		simulador.simular();
+
 		
-		
-	
-	
+		ResultadoSimulacaoPage resultado = new ResultadoSimulacaoPage(driver);
+
+		Assert.assertEquals("Em 23 meses você terá guardado", resultado.mensagemResultado());
+
 	}
-	
 
 }

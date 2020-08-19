@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
 import support.TestBase;
 
-
 public class ResultadoSimulacaoPage extends TestBase {
 
 	private WebDriver driver;
@@ -16,15 +15,15 @@ public class ResultadoSimulacaoPage extends TestBase {
 		this.driver = driver;
 
 	}
-	
-	public void mensagemResultado() {
-	
-		driver.findElement(resultado);
-				
-		
+
+	public String mensagemResultado() {
+
+		String texto = driver.findElement(resultado).getText();
+        System.out.println(texto);
+		return texto;
+
 	}
-	
-	
-	private By resultado = By.xpath("//span[@class=\"texto\"]");
+
+	private By resultado = By.className("texto");
 
 }

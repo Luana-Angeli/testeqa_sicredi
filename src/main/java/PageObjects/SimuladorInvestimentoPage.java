@@ -16,7 +16,7 @@ public class SimuladorInvestimentoPage {
 	}
 
 	public void informeSeuPerfil() {
-		driver.findElements(informeSeuPerfil).get(1).click();
+		driver.findElements(informeSeuPerfil).get(0).click();
 
 	}
 
@@ -39,7 +39,7 @@ public class SimuladorInvestimentoPage {
 
 	}
 
-	public void simular() throws InterruptedException{
+	public void simular() {
 		driver.findElement(simular).click();
 		
 	}
