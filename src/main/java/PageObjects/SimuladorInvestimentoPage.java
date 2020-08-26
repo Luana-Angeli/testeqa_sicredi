@@ -31,9 +31,7 @@ public class SimuladorInvestimentoPage {
 	}
 
 	public String validarMensagemValorInferior() {
-
 		return espera.until(ExpectedConditions.visibilityOfElementLocated(mensagemValorInferior)).getText();
-
 	}
 
 	public void tempo() {

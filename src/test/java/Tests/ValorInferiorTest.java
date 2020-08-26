@@ -23,7 +23,7 @@ public class ValorInferiorTest extends TestBase {
 		simulador.meses();
 		simulador.simular();
 
-		Assert.assertEquals("Valor mínimo de 20.00", simulador.valorAplicar());
+		Assert.assertEquals("Valor mínimo de 20.00", simulador.validarMensagemValorInferior());
 
 	}
 
