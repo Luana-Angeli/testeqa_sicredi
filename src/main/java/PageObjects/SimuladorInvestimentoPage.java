@@ -8,10 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SimuladorInvestimentoPage {
 
 	private WebDriver driver;
+	private WebDriverWait espera;
 
 	public SimuladorInvestimentoPage(WebDriver driver) {
 
 		this.driver = driver;
+		this.espera = new WebDriverWait(driver, 10);
 
 	}
 
@@ -20,16 +22,18 @@ public class SimuladorInvestimentoPage {
 
 	}
 
-	public void valorAplicar() {
-		driver.findElement(valorAplicar).sendKeys("20,00");
+	public void valorAplicar(String valor) {
+		driver.findElement(valorAplicar).sendKeys(valor);
 	}
-	
-	//public void valorAplicarMenor() {
-	//	driver.findElement(valorAplicarMenor).sendKeys("10,00");
-	//}
 
 	public void valorInvestir() {
 		driver.findElement(valorInvestir).sendKeys("20.00");
+	}
+
+	public String validarMensagemValorInferior() {
+
+		return espera.until(ExpectedConditions.visibilityOfElementLocated(mensagemValorInferior)).getText();
+
 	}
 
 	public void tempo() {
@@ -45,12 +49,12 @@ public class SimuladorInvestimentoPage {
 
 	public void simular() {
 		driver.findElement(simular).click();
-		
+
 	}
 
 	private By informeSeuPerfil = By.cssSelector("div[class='relative campoObrigatorio clearfix'] > input");
 	private By valorAplicar = By.id("valorAplicar");
-	//private By valorAplicarMenor = By.xpath("//label[@id='valorAplicar-error']");
+	private By mensagemValorInferior = By.id("valorAplicar-error");
 	private By valorInvestir = By.id("valorInvestir");
 	private By tempo = By.id("tempo");
 	private By meses = By.linkText("Meses");

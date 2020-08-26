@@ -10,26 +10,20 @@ import PageObjects.ResultadoSimulacaoPage;
 import PageObjects.SimuladorInvestimentoPage;
 import support.TestBase;
 
-public class SimuladorInvestimentoTest extends TestBase {
+public class ValorInferiorTest extends TestBase {
 
 	@Test
 	public void simuladorInvestimento() {
 
 		SimuladorInvestimentoPage simulador = new SimuladorInvestimentoPage(driver);
 		simulador.informeSeuPerfil();
-		simulador.valorAplicar("20.00");
+		simulador.valorAplicar("10.00");
 		simulador.valorInvestir();
 		simulador.tempo();
 		simulador.meses();
 		simulador.simular();
-		
-		//Assert.assertEquals("Valor mínimo de 20.00", simulador.valorAplicarMenor());
-		
-		ResultadoSimulacaoPage resultado = new ResultadoSimulacaoPage(driver);
 
-		Assert.assertEquals("Em 12 meses você terá guardado", resultado.mensagemResultado());
-		Assert.assertEquals("R$ 262", resultado.valorResultado());
-		
+		Assert.assertEquals("Valor mínimo de 20.00", simulador.valorAplicar());
 
 	}
 
