@@ -18,14 +18,19 @@ public class SimuladorInvestimentoTest extends TestBase {
 		SimuladorInvestimentoPage simulador = new SimuladorInvestimentoPage(driver);
 		simulador.informeSeuPerfil();
 		simulador.valorAplicar();
+		//simulador.valorAplicarMenor();
 		simulador.valorInvestir();
 		simulador.tempo();
 		simulador.meses();
 		simulador.simular();
 		
+		//Assert.assertEquals("Valor mínimo de 20.00", simulador.valorAplicarMenor());
+		
 		ResultadoSimulacaoPage resultado = new ResultadoSimulacaoPage(driver);
 
-		Assert.assertEquals("Em 23 meses você terá guardado", resultado.mensagemResultado());
+		Assert.assertEquals("Em 12 meses você terá guardado", resultado.mensagemResultado());
+		Assert.assertEquals("R$ 262", resultado.valorResultado());
+		
 
 	}
 

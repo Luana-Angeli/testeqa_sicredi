@@ -23,6 +23,10 @@ public class SimuladorInvestimentoPage {
 	public void valorAplicar() {
 		driver.findElement(valorAplicar).sendKeys("20,00");
 	}
+	
+	//public void valorAplicarMenor() {
+	//	driver.findElement(valorAplicarMenor).sendKeys("10,00");
+	//}
 
 	public void valorInvestir() {
 		driver.findElement(valorInvestir).sendKeys("20.00");
@@ -46,6 +50,7 @@ public class SimuladorInvestimentoPage {
 
 	private By informeSeuPerfil = By.cssSelector("div[class='relative campoObrigatorio clearfix'] > input");
 	private By valorAplicar = By.id("valorAplicar");
+	//private By valorAplicarMenor = By.xpath("//label[@id='valorAplicar-error']");
 	private By valorInvestir = By.id("valorInvestir");
 	private By tempo = By.id("tempo");
 	private By meses = By.linkText("Meses");

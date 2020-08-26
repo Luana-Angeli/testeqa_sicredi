@@ -17,7 +17,7 @@ public class TestBase {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.get("https://www.sicredi.com.br/html/ferramenta/simulador-investimento-poupanca/");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);//espera implicita
 		
 		driver.manage().window().maximize();
 
