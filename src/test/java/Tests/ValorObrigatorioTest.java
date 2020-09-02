@@ -1,11 +1,11 @@
-package tests;
+package Tests;
 
 import org.junit.Assert;
 import org.junit.Test;
 import pageObjects.SimuladorInvestimentoPage;
 import support.TestBase;
 
-public class ValorInferiorTest extends TestBase {
+public class ValorObrigatorioTest extends TestBase {
 
 	@Test
 	public void simuladorInvestimento() {
@@ -14,18 +14,10 @@ public class ValorInferiorTest extends TestBase {
 		simulador.informeSeuPerfil();
 		simulador.valorAplicar("10.00");
 		simulador.valorInvestir("10.00");
-		simulador.tempo("12");
+		simulador.tempo("");
 		simulador.meses();
 		simulador.simular();
 
-		Assert.assertEquals("Valor mínimo de 20.00", simulador.validarMensagemValorInferiorAplicar());
-
-		Assert.assertEquals("Valor mínimo de 20.00", simulador.validarMensagemValorInferiorInvestir());
-
-		Assert.assertEquals("Valor esperado não confere", simulador.validarMensagemTempoValorIncorreto());
-		
-		
-		
         //simulador.tempo(" ");
 		//Assert.assertEquals("Obrigatório", simulador.validarMensagemTempoObrigatorio());
 	 	
@@ -34,10 +26,7 @@ public class ValorInferiorTest extends TestBase {
 		//}if else (simulador.tempo(" ")){
 		//	Assert.assertEquals("Obrigatório", simulador.validarMensagemTempoObrigatorio());	
 		//}
-		
-		
-		
-		
+
 	}
 
 }

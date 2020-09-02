@@ -48,7 +48,7 @@ public class SimuladorInvestimentoPage {
 	}
 
 	public String validarMensagemTempoValorIncorreto() {
-		return espera.until(ExpectedConditions.invisibilityOfElementLocated(mensagemTempoValorIncorreto)).toString();
+		return espera.until(ExpectedConditions.visibilityOfElementLocated(mensagemTempoValorIncorreto)).getText();
 	}
 
 	public void meses() {
