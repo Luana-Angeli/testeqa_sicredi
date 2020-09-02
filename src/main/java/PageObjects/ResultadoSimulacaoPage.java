@@ -1,4 +1,4 @@
-package PageObjects;
+package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.cucumber.messages.internal.com.google.common.io.ByteArrayDataInput;
 import support.TestBase;
 
+import java.awt.List;
 import java.util.concurrent.TimeUnit;
 
 public class ResultadoSimulacaoPage extends TestBase {
@@ -31,16 +32,21 @@ public class ResultadoSimulacaoPage extends TestBase {
 		return valor;
 
 	}
-	
-	/*criar um metodo que varra a tabela de resultados da situação.
-	 * 1-procurar coluna do tempo: primeira coluna tempo(meses)
-	 * 2-encontrar a linhas dos registros
-	 * 3-procurar coluna do valor: segunda coluna valor
-	 * 4-validar valores.
-	 */
-	
-	
+
+	// Exercicio 3: 
+	public void tabelaResultadoTempo() {
+		driver.findElements(tempoMeses).get(0).getText();
+
+	}
+
+	public void tabelaResultadoValor() {
+		driver.findElements(valorMeses).get(1).getText();
+	}
 
 	private By texto1 = By.cssSelector("span[class='texto']");
 	private By valor1 = By.cssSelector("span[class='valor']");
+
+	// busca elemento da tabela resulta coluna tempo
+	private By tempoMeses = By.cssSelector("div[class='maisOpcoes'] > table > thead > tr > th");
+	private By valorMeses = By.cssSelector("div[class='maisOpcoes'] > table > thead > tr > th");
 }

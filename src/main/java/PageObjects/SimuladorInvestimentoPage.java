@@ -1,4 +1,4 @@
-package PageObjects;
+package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ public class SimuladorInvestimentoPage {
 	public SimuladorInvestimentoPage(WebDriver driver) {
 
 		this.driver = driver;
-		this.espera = new WebDriverWait(driver, 10);
+		this.espera = new WebDriverWait(driver, 20);
 
 	}
 
@@ -26,17 +26,29 @@ public class SimuladorInvestimentoPage {
 		driver.findElement(valorAplicar).sendKeys(valor);
 	}
 
-	public void valorInvestir() {
-		driver.findElement(valorInvestir).sendKeys("20.00");
+	public void valorInvestir(String valor) {
+		driver.findElement(valorInvestir).sendKeys(valor);
 	}
 
-	public String validarMensagemValorInferior() {
-		return espera.until(ExpectedConditions.visibilityOfElementLocated(mensagemValorInferior)).getText();
+	public String validarMensagemValorInferiorAplicar() {
+		return espera.until(ExpectedConditions.visibilityOfElementLocated(mensagemValorInferiorAplicar)).getText();
 	}
 
-	public void tempo() {
-		driver.findElement(tempo).sendKeys("12");
+	public String validarMensagemValorInferiorInvestir() {
+		return espera.until(ExpectedConditions.visibilityOfElementLocated(mensagemValorInferiorInvestir)).getText();
+	}
 
+	public void tempo(String valor) {
+		driver.findElement(tempo).sendKeys(valor);
+
+	}
+
+	public String validarMensagemTempoObrigatorio() {
+		return espera.until(ExpectedConditions.visibilityOfElementLocated(mensagemTempoObrigatorio)).getText();
+	}
+
+	public String validarMensagemTempoValorIncorreto() {
+		return espera.until(ExpectedConditions.invisibilityOfElementLocated(mensagemTempoValorIncorreto)).toString();
 	}
 
 	public void meses() {
@@ -52,9 +64,12 @@ public class SimuladorInvestimentoPage {
 
 	private By informeSeuPerfil = By.cssSelector("div[class='relative campoObrigatorio clearfix'] > input");
 	private By valorAplicar = By.id("valorAplicar");
-	private By mensagemValorInferior = By.id("valorAplicar-error");
 	private By valorInvestir = By.id("valorInvestir");
+	private By mensagemValorInferiorAplicar = By.id("valorAplicar-error");
+	private By mensagemValorInferiorInvestir = By.id("valorInvestir-error");
 	private By tempo = By.id("tempo");
+	private By mensagemTempoObrigatorio = By.id("tempo-error");
+	private By mensagemTempoValorIncorreto = By.id("tempo-error");
 	private By meses = By.linkText("Meses");
 	private By selecionarTempo = By.cssSelector("ul[class='listaSelect'] >li > a");
 	private By simular = By.xpath("//button[@class='btn btnAmarelo btnSimular']");
