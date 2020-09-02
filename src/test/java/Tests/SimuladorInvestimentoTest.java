@@ -1,12 +1,8 @@
-package tests;
+package Tests;
 
+import PageObjects.ResultadoSimulacaoPage;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import pageObjects.ResultadoSimulacaoPage;
 import pageObjects.SimuladorInvestimentoPage;
 import support.TestBase;
 
@@ -22,14 +18,13 @@ public class SimuladorInvestimentoTest extends TestBase {
 		simulador.tempo("12");
 		simulador.meses();
 		simulador.simular();
-		
+
 		ResultadoSimulacaoPage resultado = new ResultadoSimulacaoPage(driver);
 
 		Assert.assertEquals("Em 12 meses você terá guardado", resultado.mensagemResultado());
 		Assert.assertEquals("R$ 262", resultado.valorResultado());
-		//Assert.assertE("Tempo (Meses)", resultado.tabelaResultadoTempo());
-		
 
+//		Assert.assertEquals("Tempo (Meses)", resultado.tabelaResultadoTempo());
 	}
 
 }
