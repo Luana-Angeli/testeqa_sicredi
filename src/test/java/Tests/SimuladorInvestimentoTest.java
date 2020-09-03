@@ -1,6 +1,6 @@
-package Tests;
+package tests;
 
-import PageObjects.ResultadoSimulacaoPage;
+import pageObjects.ResultadoSimulacaoPage;
 import org.junit.Assert;
 import org.junit.Test;
 import pageObjects.SimuladorInvestimentoPage;
