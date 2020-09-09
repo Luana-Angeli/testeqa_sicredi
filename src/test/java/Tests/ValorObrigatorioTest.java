@@ -19,6 +19,7 @@ public class ValorObrigatorioTest extends TestBase {
 		simulador.simular();
 
 		Assert.assertEquals("Obrigatório", simulador.validarMensagemTempoObrigatorio());
+		
 
 	}
 
