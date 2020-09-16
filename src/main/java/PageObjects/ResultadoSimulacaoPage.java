@@ -13,6 +13,7 @@ public class ResultadoSimulacaoPage extends TestBase {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
+	private WebElement element;
 
 	public ResultadoSimulacaoPage(WebDriver driver) {
 		this.driver = driver;
@@ -30,33 +31,48 @@ public class ResultadoSimulacaoPage extends TestBase {
 
 	}
 
-	// Exercicio 3:
-	/*
-	 * percorrer a lista de meses - dentro dela eu vou pegar a posicao 0,1,2,3
-	 * percorrer a lista de valores - dentro dele eu vou pegar a posicao 0,1,2,3
-	 * 
-	 * depois de pegar os dois valores, eu vou criar a condição para validar se o
-	 * mes esta com o valores esperado
-	 */
+	// Exercicio 4:
+//	-> ao inves de passar uma string do mes, o metodo de validacao deve receber uma listagem de meses e uma listagem de valores: OK;
+//
+//	-> vamos precisar de dois for's, uma para os meses e outro para os valores: OK;
+//
+//	-> caso encontre todos os valores corretos retornar true, caso contrario false;
 
-	public String tabelaResultadoTempo() {
+	public Boolean tabelaResultadoTempo2(List<String> mesesValor, List<String> valores) {
 
 		List<WebElement> mesesList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tempoMeses));
 		List<WebElement> valorList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(valorMeses));
 
-		for (int m = 0; m < mesesList.size(); m++) {
-			for (int v = 0; v < valorList.size(); v++) {
-				if (mesesList.get(m).equals(valorList.get(v))) {
+		for (int m = 0; m < mesesValor.size(); m++) {
+			for (int v = 0; v < valores.size(); v++) {
+				if (mesesValor.get(m).equals(mesesList.get(m).getText())) {
+					if (valores.get(v).equals(valorList.get(v).getText())) {
+						// if (mesesValor.get(m).equals(mesesList.get(m).getText())
+						// && valores.get(v).equals(valorList.get(v).getText())) {
+						System.out.println(mesesList.get(m).getText());
+						System.out.println(valorList.get(v).getText());
 
-					return mesesList.get(0).getText();
+						break;
 
+						// }
+					}
+					System.out.println("");
 				}
+
 			}
+
 		}
-		return null;
+		return false;
 
 	}
 
+	//lista de booleanos
+	
+	
+	
+	
+	
+	
 	private By texto1 = By.cssSelector("span[class='texto']");
 	private By valor1 = By.cssSelector("span[class='valor']");
 
