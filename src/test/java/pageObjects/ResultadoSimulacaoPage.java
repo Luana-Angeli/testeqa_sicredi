@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import support.TestBase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ResultadoSimulacaoPage extends TestBase {
@@ -38,41 +39,30 @@ public class ResultadoSimulacaoPage extends TestBase {
 //
 //	-> caso encontre todos os valores corretos retornar true, caso contrario false;
 
-	public Boolean tabelaResultadoTempo2(List<String> mesesValor, List<String> valores) {
+	public int tabelaResultadoTempo2(List<String> mesesValor, List<String> valores) {
+		List<Boolean> validacaoResultados = new ArrayList<Boolean>();
 
 		List<WebElement> mesesList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tempoMeses));
 		List<WebElement> valorList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(valorMeses));
 
-		for (int m = 0; m < mesesValor.size(); m++) {
-			for (int v = 0; v < valores.size(); v++) {
-				if (mesesValor.get(m).equals(mesesList.get(m).getText())) {
-					if (valores.get(v).equals(valorList.get(v).getText())) {
-						// if (mesesValor.get(m).equals(mesesList.get(m).getText())
-						// && valores.get(v).equals(valorList.get(v).getText())) {
-						System.out.println(mesesList.get(m).getText());
-						System.out.println(valorList.get(v).getText());
-
-						break;
-
-						// }
-					}
-					System.out.println("");
+		for (int count = 0; count < mesesValor.size(); count++) {
+			if (mesesValor.get(count).equals(mesesList.get(count).getText())) {
+				String valor = valorList.get(count).getText();
+				if (valores.get(count).equals(valor)) {
+					validacaoResultados.add(true);
 				}
-
 			}
-
 		}
-		return false;
-
+		return validacaoResultados.size();
 	}
 
 	//lista de booleanos
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	private By texto1 = By.cssSelector("span[class='texto']");
 	private By valor1 = By.cssSelector("span[class='valor']");
 
