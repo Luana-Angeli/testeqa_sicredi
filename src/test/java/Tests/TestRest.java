@@ -1,24 +1,30 @@
 package tests;
 
-import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-
+import org.junit.Assert;
 import org.junit.Test;
-import static io.restassured.RestAssured.*;
+import tasks.RestTask;
+
+import java.util.List;
+
+import static io.restassured.RestAssured.given;
 
 public class TestRest {
-	
-	@Test
-	public void testAPI() {
-		
-		JsonPath response = given().expect().statusCode(200)
-                .when().get("http://5b847b30db24a100142dce1b.mockapi.io/api/v1/simulador")
-                .then().extract().jsonPath();
 
-        System.out.println(response);
+	@Test
+	public void validarIdAPI() {
+		JsonPath sicredi = RestTask.getMesesValores();
+		Assert.assertEquals(1, sicredi.get("id"));
 	}
-	
-	
-	
+
+	@Test
+	public void validarMesesAPI() {
+		JsonPath sicredi = RestTask.getMesesValores();
+		String mes = sicredi.get("meses[3]");
+		System.out.println(mes);
+	}
+
+
+
 
 }
