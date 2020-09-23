@@ -62,16 +62,16 @@ public class SimuladorInvestimentoPage {
 
 	}
 
-	private By informeSeuPerfil = By.cssSelector("div[class='relative campoObrigatorio clearfix'] > input");
-	private By valorAplicar = By.id("valorAplicar");
-	private By valorInvestir = By.id("valorInvestir");
+	private By informeSeuPerfil = By.cssSelector("div[class='relative campoObrigatorio clearfix'] > input");//ok
+	private By valorAplicar = By.id("valorAplicar");//ok
+	private By valorInvestir = By.id("valorInvestir");//ok
 	private By mensagemValorInferiorAplicar = By.id("valorAplicar-error");
 	private By mensagemValorInferiorInvestir = By.id("valorInvestir-error");
-	private By tempo = By.id("tempo");
+	private By tempo = By.id("tempo");//ok
 	private By mensagemTempoObrigatorio = By.id("tempo-error");
 	private By mensagemTempoValorIncorreto = By.id("tempo-error");
-	private By meses = By.linkText("Meses");
-	private By selecionarTempo = By.cssSelector("ul[class='listaSelect'] >li > a");
-	private By simular = By.xpath("//button[@class='btn btnAmarelo btnSimular']");
+	private By meses = By.linkText("Meses");//ver com Amaral
+	private By selecionarTempo = By.cssSelector("ul[class='listaSelect'] >li > a");//ver com Amaral
+	private By simular = By.xpath("//button[@class='btn btnAmarelo btnSimular']");//ok
 
 }

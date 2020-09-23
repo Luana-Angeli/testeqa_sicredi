@@ -56,13 +56,6 @@ public class ResultadoSimulacaoPage extends TestBase {
 		return validacaoResultados.size();
 	}
 
-	//lista de booleanos
-
-
-
-
-
-
 	private By texto1 = By.cssSelector("span[class='texto']");
 	private By valor1 = By.cssSelector("span[class='valor']");
 
