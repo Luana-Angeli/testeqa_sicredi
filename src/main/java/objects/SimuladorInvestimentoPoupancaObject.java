@@ -1,12 +1,12 @@
 package objects;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class SimuladorInvestimentoPoupancaObject {
 
@@ -14,10 +14,13 @@ public class SimuladorInvestimentoPoupancaObject {
 	private WebDriverWait espera;
 
 	public SimuladorInvestimentoPoupancaObject(WebDriver driver) {
-
 		this.driver = driver;
 		this.espera = new WebDriverWait(driver, 20);
+	}
 
+	public SimuladorInvestimentoPoupancaObject(WebDriver driver, int numero) {
+		this.driver = driver;
+		System.out.println(numero);
 	}
 
 	public List<WebElement> informeSeuPerfil() {
@@ -38,9 +41,11 @@ public class SimuladorInvestimentoPoupancaObject {
 	}
 
 	public WebElement meses() {
+		return espera.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Meses")));
+	}
 
-		 return espera.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Meses")));
-		// return espera.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("ul[class='listaSelect'] >li > a")));
+	public List<WebElement> selectTempo(){
+		return espera.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("ul[class='listaSelect'] >li > a")));
 	}
 
 	public WebElement simular() {

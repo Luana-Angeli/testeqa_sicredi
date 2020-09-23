@@ -34,7 +34,8 @@ public class SimuladorInvestimentoPoupancaTask {
 
 	public void meses() {
 		simulador.meses().click(); // VER COM AMARAL
-
+		// simulador.selectTempo().get(0).click();
+		// alterar para  for passando o valor por parâmetro
 	}
 
 	public void simular() {
